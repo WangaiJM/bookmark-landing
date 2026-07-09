@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  // colors
+  --white: hsl(0, 100%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --dark-blue: hsl(229, 31%, 21%);
+  --blue: hsl(231, 69%, 60%);
+  --dark-gray: hsl(228, 12%, 41%);
+  --gray: hsl(0, 0%, 97%);
+  --red: hsl(0, 94%, 66%);
+
+  //   spacing
+  --spacing-0: 0;
+  --spacing-1: 0.8rem;
+  --spacing-2: 1.6rem;
+  --spacing-3: 2.4rem;
+  --spacing-4: 3.2rem;
+  --spacing-5: 4rem;
+  --spacing-6: 4.8rem;
+  --spacing-7: 5.6rem;
+  --spacing-8: 6.4rem;
+  --spacing-9: 7.2rem;
+  --spacing-10: 8rem;
+  --spacing-15: 12rem;
+  --spacing-20: 16rem;
+
+  //   typography
+  --ff: "Rubik", sans-serif;
+
+  --fw-b: 600;
+  --fw-m: 500;
+  --fw-r: 400;
+  --fw-l: 300;
+}
+@mixin text-preset-1($media) {
+  @if $media == "desktop" {
+    font-size: 4.8rem;
+    line-height: 1.1;
+    font-weight: var(--fw-m);
+  } @else if $media == "mobile" {
+    font-size: 3rem;
+    line-height: 1.35;
+    font-weight: var(--fw-m);
+  }
+}
+
+@mixin text-preset-2($media) {
+  @if $media == "desktop" {
+    font-size: 3.2rem;
+    line-height: 1.25;
+    font-weight: var(--fw-m);
+  } @else if $media == "mobile-m" {
+    font-size: 1.5rem;
+    line-height: 2;
+    font-weight: var(--fw-m);
+  } @else if $media == "mobile-r" {
+    font-size: 1.5rem;
+    line-height: 1.65;
+    font-weight: var(--fw-r);
+  } @else if $media == "mobile-l" {
+    font-size: 1.5rem;
+    line-height: 2;
+    font-weight: var(--fw-l);
+  }
+}
+@mixin text-preset-3($media) {
+  @if $media == "desktop" {
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: var(--fw-m);
+  } @else if $media == "mobile" {
+    font-size: 1.2rem;
+    line-height: 3;
+    font-weight: var(--fw-m);
+  }
+}
+@mixin text-preset-4($media) {
+  @if $media == "desktop" {
+    font-size: 1.5rem;
+    line-height: 1.55;
+    font-weight: var(--fw-r);
+  } @else if $media == "mobile" {
+    font-size: 1rem;
+    line-height: 2;
+    font-weight: var(--fw-m);
+    font-style: italic;
+  }
+}
+@mixin text-preset-5($weight) {
+  @if $weight == "r" {
+    font-size: 1.6rem;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    font-weight: var(--fw-r);
+  } @else if $weight == "m" {
+    font-size: 1.6rem;
+    line-height: 2.25;
+    letter-spacing: 0.5px;
+    font-weight: var(--fw-m);
+  }
+}
+@mixin text-preset-6($weight) {
+  @if $weight == "r" {
+    font-size: 1.4rem;
+    line-height: 2;
+    letter-spacing: 0.25px;
+    font-weight: var(--fw-r);
+  } @else if $weight == "m" {
+    font-size: 1.4rem;
+    line-height: 3;
+    letter-spacing: 5px;
+    font-weight: var(--fw-b);
+  }
+}
+
+@mixin text-preset-7 {
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.25px;
+  font-weight: var(--fw-3);
+  font-style: italic;
+}
+@mixin breakpoint($media) {
+  @if $media == "tablet" {
+    @media (min-width: 40rem) {
+      @content;
+    }
+  } @else if $media == "desktop" {
+    @media (min-width: 56.25rem) {
+      @content;
+    }
+  }
+}
+@mixin flex($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+}
+@mixin grid($grid: 1fr) {
+  display: grid;
+  grid-template-columns: $grid;
+}
+// reset
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  min-height: 100vh;
+  font-family: var(--ff);
+  font-size: 1.8rem;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+// components
+.btn {
+  @include flex("row");
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--spacing-1);
+
+  &-primary {
+    background-color: var(--blue);
+    color: var(--white);
+    @include text-preset-6("m");
+    border: none;
+
+    &:hover {
+      background-color: var(--white);
+      color: var(--blue);
+      border: 0.15rem solid var(--blue);
+    }
+  }
+
+  &-secondary {
+    background-color: var(--gray);
+    color: var(--dark-blue);
+    border: none;
+    @include text-preset-6("m");
+
+    &:hover {
+      background-color: var(--white);
+      border: 0.15rem solid var(--dark-blue);
+    }
+  }
+
+  &-tertiary {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    @include text-preset-6("m");
+
+    &:hover {
+      background-color: var(--white);
+      color: var(--red);
+      border: 0.15rem solid var(--red);
+    }
+  }
+}

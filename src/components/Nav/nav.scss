@@ -1,0 +1,124 @@
+@use "../../index.scss" as *;
+
+header {
+  @include flex(row);
+  justify-content: space-between;
+  padding: var(--spacing-5) var(--spacing-4);
+  position: relative;
+
+  @include breakpoint("tablet") {
+    padding: var(--spacing-5) var(--spacing-10);
+  }
+  @include breakpoint("desktop") {
+    padding: var(--spacing-6) var(--spacing-20);
+  }
+
+  &.active {
+    background-color: var(--dark-blue);
+    height: 100vh;
+  }
+
+  .nav {
+    &.active {
+      position: absolute;
+      width: 100%;
+      @include flex(column);
+      justify-content: space-between;
+      height: 80%;
+      top: var(--spacing-15);
+      left: 0;
+    }
+
+    &-list {
+      @include flex(column);
+      gap: var(--spacing-2);
+      width: 80%;
+      margin-inline: auto;
+
+      @include breakpoint("desktop") {
+        @include flex(row);
+        width: auto;
+      }
+
+      &__item {
+        padding-block: var(--spacing-1);
+        @include flex(column);
+        border-bottom: 1px solid var(--dark-gray);
+        justify-content: center;
+        align-items: center;
+
+        @include breakpoint("desktop") {
+          padding-block: 0;
+          border-bottom: none;
+        }
+
+        a {
+          color: var(--white);
+          text-transform: uppercase;
+          text-align: center;
+
+          @include breakpoint("desktop") {
+            color: var(--dark-blue);
+
+            &:hover {
+              color: var(--red);
+            }
+          }
+
+          &.btn {
+            border: 1px solid var(--white);
+            background-color: transparent;
+            width: 100%;
+
+            @include breakpoint("desktop") {
+              width: auto;
+              border: none;
+              background-color: var(--red);
+              color: var(--white);
+              padding-inline: var(--spacing-3);
+
+              &:hover {
+                color: var(--red);
+                background-color: var(--white);
+                border: 1.5px solid var(--red);
+              }
+            }
+
+            &:hover {
+              border: 1px solid var(--red);
+            }
+          }
+        }
+      }
+    }
+
+    @include breakpoint("desktop") {
+      &.hidden {
+        display: block;
+      }
+    }
+
+    &-footer {
+      @include flex(row);
+      justify-content: center;
+      gap: var(--spacing-3);
+
+      @include breakpoint("desktop") {
+        display: none;
+      }
+    }
+  }
+
+  button {
+    position: absolute;
+    top: var(--spacing-6);
+    right: var(--spacing-5);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include breakpoint("desktop") {
+      display: none;
+    }
+  }
+}
