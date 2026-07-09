@@ -1,0 +1,59 @@
+@use "../../index.scss" as *;
+
+.hero {
+  padding: var(--spacing-5) var(--spacing-4);
+  @include flex(column);
+  gap: var(--spacing-6);
+
+  @include breakpoint("tablet") {
+    padding: var(--spacing-5) var(--spacing-10);
+    gap: var(--spacing-9);
+  }
+  @include breakpoint("desktop") {
+    padding: var(--spacing-6) var(--spacing-20);
+    @include flex(row-reverse);
+  }
+  &-header {
+    flex: 1;
+  }
+  &-body {
+    @include flex(column);
+    gap: var(--spacing-3);
+    text-align: center;
+    flex: 1;
+
+    @include breakpoint("desktop") {
+      justify-content: end;
+      text-align: left;
+    }
+
+    h2 {
+      @include text-preset-1("mobile");
+      color: var(--dark-blue);
+    }
+    p {
+      @include text-preset-2("mobile-r");
+      color: var(--dark-blue);
+    }
+    &__cta {
+      @include flex(row);
+      justify-content: center;
+      align-items: center;
+      gap: var(--spacing-2);
+
+      @include breakpoint("desktop") {
+        justify-content: start;
+      }
+
+      a {
+        @include text-preset-2("mobile");
+        padding: var(--spacing-1) var(--spacing-2);
+        text-align: center;
+
+        @include breakpoint("desktop") {
+          @include text-preset-6("m");
+        }
+      }
+    }
+  }
+}
