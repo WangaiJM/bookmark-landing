@@ -1,16 +1,14 @@
 @use "../../index.scss" as *;
 
 .hero {
-  padding: var(--spacing-5) var(--spacing-4);
+  @include wall;
   @include flex(column);
   gap: var(--spacing-6);
 
   @include breakpoint("tablet") {
-    padding: var(--spacing-5) var(--spacing-10);
     gap: var(--spacing-9);
   }
   @include breakpoint("desktop") {
-    padding: var(--spacing-6) var(--spacing-20);
     @include flex(row-reverse);
   }
   &-header {

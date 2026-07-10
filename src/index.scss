@@ -9,6 +9,7 @@
   --dark-gray: hsl(228, 12%, 41%);
   --gray: hsl(0, 0%, 97%);
   --red: hsl(0, 94%, 66%);
+  --stroke: hsl(0, 0%, 59%);
 
   //   spacing
   --spacing-0: 0;
@@ -139,6 +140,16 @@
 @mixin grid($grid: 1fr) {
   display: grid;
   grid-template-columns: $grid;
+}
+@mixin wall {
+  padding: var(--spacing-5) var(--spacing-4);
+
+  @include breakpoint("tablet") {
+    padding: var(--spacing-5) var(--spacing-10);
+  }
+  @include breakpoint("desktop") {
+    padding: var(--spacing-6) var(--spacing-20);
+  }
 }
 // reset
 *,

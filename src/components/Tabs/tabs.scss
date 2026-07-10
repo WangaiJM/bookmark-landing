@@ -1,0 +1,104 @@
+@use "../../index.scss" as *;
+
+.tabs {
+  &-head {
+    @include flex(column);
+
+    @include breakpoint("tablet") {
+      @include flex(row);
+      margin-bottom: var(--spacing-8);
+    }
+    @include breakpoint("desktop") {
+      margin-bottom: var(--spacing-9);
+    }
+    button {
+      padding-block: var(--spacing-2);
+      background-color: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--stroke);
+      @include text-preset-2("mobile-r");
+      position: relative;
+      cursor: pointer;
+
+      @include breakpoint("tablet") {
+        flex: 1;
+        @include text-preset-5("r");
+      }
+
+      &.active {
+        &::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          content: "";
+          width: 60%;
+          height: 0.4rem;
+          background-color: var(--red);
+        }
+      }
+      &:hover,
+      &:focus {
+        @include text-preset-5("m");
+      }
+
+      &:first-child {
+        border-top: 1px solid var(--stroke);
+
+        @include breakpoint("tablet") {
+          border-top: 0;
+        }
+      }
+    }
+  }
+
+  &-body {
+    &__content {
+      @include flex(column);
+      gap: var(--spacing-4);
+
+      @include breakpoint("desktop") {
+        @include flex(row);
+        align-items: center;
+      }
+    }
+
+    .tabs-illustration {
+      @include breakpoint("desktop") {
+        flex: 1;
+      }
+    }
+
+    .tabs-info {
+      @include flex(column);
+      gap: var(--spacing-2);
+
+      @include breakpoint("desktop") {
+        flex: 1;
+      }
+
+      &__content {
+        @include flex(column);
+        gap: var(--spacing-2);
+        text-align: center;
+
+        h2 {
+          @include text-preset-1("mobile");
+          color: var(--dark-blue);
+        }
+        p {
+          @include text-preset-2("mobile-r");
+          color: var(--dark-gray);
+        }
+      }
+
+      &__cta {
+        @include flex(row);
+        justify-content: center;
+        a {
+          padding: var(--spacing-1) var(--spacing-3);
+        }
+      }
+    }
+  }
+}

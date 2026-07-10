@@ -1,0 +1,50 @@
+@use "../../index.scss" as *;
+
+.section {
+  @include wall;
+  @include flex(column);
+  gap: var(--spacing-4);
+
+  @include breakpoint("tablet") {
+    gap: var(--spacing-8);
+  }
+  @include breakpoint("desktop") {
+    gap: var(--spacing-9);
+  }
+
+  &-head {
+    @include flex(column);
+    gap: var(--spacing-2);
+    text-align: center;
+
+    h2 {
+      @include text-preset-1("mobile");
+      color: var(--dark-blue);
+
+      @include breakpoint("tablet") {
+        @include text-preset-2("desktop");
+      }
+
+      @include breakpoint("desktop") {
+        @include text-preset-1("desktop");
+      }
+    }
+    p {
+      @include text-preset-2("mobile-r");
+
+      @include breakpoint("tablet") {
+        @include text-preset-4("desktop");
+      }
+
+      @include breakpoint("desktop") {
+        @include text-preset-2("desktop");
+        font-weight: var(--fw-r);
+      }
+    }
+  }
+
+  &-body {
+    @include flex(column);
+    gap: var(--spacing-1);
+  }
+}
