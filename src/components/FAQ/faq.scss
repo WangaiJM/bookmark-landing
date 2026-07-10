@@ -1,0 +1,47 @@
+@use "../../index.scss" as *;
+
+.faq {
+  @include breakpoint("desktop") {
+    width: 70%;
+    margin: auto;
+  }
+  &-item {
+    border-bottom: 0.1rem solid var(--stroke);
+    padding-block: var(--spacing-2);
+    &__question {
+      @include flex(row);
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      h2 {
+        @include text-preset-2("mobile-m");
+      }
+      img {
+        width: auto;
+      }
+    }
+    &__answer {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+      p {
+        @include text-preset-2("mobile-r");
+      }
+    }
+  }
+
+  &-cta {
+    @include flex(row);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: var(--spacing-7);
+
+    a {
+      padding-inline: var(--spacing-2);
+    }
+  }
+}

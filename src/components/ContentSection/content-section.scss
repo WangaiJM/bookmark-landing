@@ -31,6 +31,7 @@
     }
     p {
       @include text-preset-2("mobile-r");
+      color: var(--dark-gray);
 
       @include breakpoint("tablet") {
         @include text-preset-4("desktop");

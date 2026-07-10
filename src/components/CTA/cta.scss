@@ -1,0 +1,59 @@
+@use "../../index.scss" as *;
+
+.cta {
+  background-color: var(--blue);
+  color: var(--white);
+  @include wall;
+  @include flex(column);
+  gap: var(--spacing-4);
+
+  &-body {
+    @include flex(column);
+    gap: var(--spacing-4);
+    text-align: center;
+
+    h2 {
+      @include text-preset-3("mobile");
+    }
+    p {
+      @include text-preset-1("mobile");
+    }
+  }
+  &-form {
+    form {
+      @include flex(column);
+      justify-content: center;
+      align-items: center;
+      gap: var(--spacing-2);
+
+      @include breakpoint("tablet") {
+        @include flex(row);
+      }
+
+      input,
+      button {
+        width: 100%;
+
+        @include breakpoint("tablet") {
+          width: auto;
+        }
+      }
+      input {
+        padding: var(--spacing-2);
+        border-radius: var(--spacing-1);
+        border: none;
+        @include text-preset-2("mobile-r");
+
+        &:focus {
+          outline: 0.1rem;
+        }
+      }
+
+      button {
+        @include breakpoint("tablet") {
+          padding: var(--spacing-1) var(--spacing-2);
+        }
+      }
+    }
+  }
+}
