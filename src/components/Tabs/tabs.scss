@@ -1,6 +1,9 @@
 @use "../../index.scss" as *;
 
 .tabs {
+  @include breakpoint("desktop") {
+    margin-bottom: var(--spacing-15);
+  }
   &-head {
     @include flex(column);
 
@@ -36,10 +39,6 @@
           height: 0.4rem;
           background-color: var(--red);
         }
-      }
-      &:hover,
-      &:focus {
-        @include text-preset-5("m");
       }
 
       &:first-child {

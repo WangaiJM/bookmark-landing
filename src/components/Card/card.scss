@@ -1,0 +1,41 @@
+@use "../../index.scss" as *;
+
+.card {
+  @include flex(column);
+  gap: var(--spacing-3);
+
+  &-info {
+    @include flex(column);
+    gap: var(--spacing-4);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &::after {
+      content: "";
+      bottom: 0;
+      height: 0.4rem;
+      width: 85%;
+      border-bottom: 0.4rem dotted var(--stroke);
+    }
+
+    &__text {
+      h2 {
+        @include text-preset-2("mobile-m");
+        margin-bottom: var(--spacing-1);
+      }
+      p {
+        @include text-preset-6("r");
+      }
+    }
+  }
+  &-cta {
+    @include flex("row");
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    a {
+      padding-inline: var(--spacing-1);
+    }
+  }
+}

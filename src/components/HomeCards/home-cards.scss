@@ -1,0 +1,26 @@
+@use "../../index.scss" as *;
+
+.homecards {
+  @include flex(column);
+  gap: var(--spacing-5);
+
+  @include breakpoint("tablet") {
+    @include flex(row);
+    justify-content: space-between;
+  }
+  @include breakpoint("desktop") {
+    @include flex(row);
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-15);
+
+    .card {
+      &:first-child {
+        transform: translateY(-10%);
+      }
+      &:last-child {
+        transform: translateY(10%);
+      }
+    }
+  }
+}

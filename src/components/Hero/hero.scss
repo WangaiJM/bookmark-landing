@@ -10,6 +10,7 @@
   }
   @include breakpoint("desktop") {
     @include flex(row-reverse);
+    margin-bottom: var(--spacing-15);
   }
   &-header {
     flex: 1;
