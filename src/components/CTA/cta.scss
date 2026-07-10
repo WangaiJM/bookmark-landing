@@ -6,6 +6,7 @@
   @include wall;
   @include flex(column);
   gap: var(--spacing-4);
+  padding-block: var(--spacing-7);
 
   &-body {
     @include flex(column);

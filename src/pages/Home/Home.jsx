@@ -7,6 +7,7 @@ import FAQ from "../../components/FAQ/FAQ";
 import Cta from "../../components/CTA/Cta";
 
 import "./home.scss";
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -37,6 +38,7 @@ const Home = () => {
         />
         <Cta />
       </main>
+      <Footer />
     </>
   );
 };

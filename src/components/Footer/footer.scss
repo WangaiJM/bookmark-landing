@@ -1,0 +1,35 @@
+@use "../../index.scss" as *;
+
+.footer {
+  @include wall;
+  background-color: var(--dark-blue);
+  @include flex(column);
+  gap: var(--spacing-6);
+  align-items: center;
+
+  @include breakpoint("tablet") {
+    @include flex(row);
+    justify-content: space-between;
+  }
+
+  &-links {
+    @include flex(column);
+    gap: var(--spacing-3);
+    align-items: center;
+
+    @include breakpoint("tablet") {
+      @include flex(row);
+      justify-content: space-between;
+    }
+
+    a {
+      text-transform: uppercase;
+      color: var(--white);
+      cursor: pointer;
+    }
+  }
+  &-icons {
+    @include flex(row);
+    gap: var(--spacing-5);
+  }
+}
