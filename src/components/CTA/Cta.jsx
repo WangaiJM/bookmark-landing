@@ -2,9 +2,9 @@ import "./cta.scss";
 
 const cta = () => {
   return (
-    <section className="cta">
+    <section className="cta" aria-labelledby="cta-title" id="cta">
       <div className="cta-body">
-        <h2>35,000+ ALREADY JOINED</h2>
+        <h2 id="cta-title">35,000+ ALREADY JOINED</h2>
         <p>Stay up-to-date with what we’re doing</p>
       </div>
       <div className="cta-form">

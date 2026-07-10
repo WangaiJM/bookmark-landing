@@ -8,15 +8,18 @@
   &-item {
     border-bottom: 0.1rem solid var(--stroke);
     padding-block: var(--spacing-2);
+
     &__question {
       @include flex(row);
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      @include text-preset-2("mobile-m");
+      padding-bottom: var(--spacing-2);
 
-      h2 {
-        @include text-preset-2("mobile-m");
-      }
       img {
         width: auto;
       }

@@ -22,14 +22,17 @@ const FAQ = () => {
 
         return (
           <div className="faq-item" key={index}>
-            <div
+            <button
               className="faq-item__question"
               onClick={() => handleClick(index)}
+              aria-expanded={index === activeIndex}
+              aria-controls={`faq-answer-${index}`}
             >
-              <h2>{faq.question}</h2>
+              {faq.question}
               <img src={Arrow} alt="" />
-            </div>
+            </button>
             <div
+              id={`faq-answer-${index}`}
               className={
                 index === activeIndex
                   ? "faq-item__answer active"

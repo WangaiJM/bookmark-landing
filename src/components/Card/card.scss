@@ -19,7 +19,7 @@
     }
 
     &__text {
-      h2 {
+      h3 {
         @include text-preset-2("mobile-m");
         margin-bottom: var(--spacing-1);
       }
